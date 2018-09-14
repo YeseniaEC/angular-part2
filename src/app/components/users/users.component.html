@@ -1,0 +1,33 @@
+<div class="margin-body">
+  <h1 class="text-center">All Users</h1>
+  
+  <table mat-table [dataSource]="users" class="mat-elevation-z8" *ngIf="userHasLength(); else noFirstName">
+
+    <!-- <table *ngFor="let user of users"> -->
+
+    <!-- {{ users | json }}  This method is used in production to help debug and see if youre getting back your data -->
+    
+    <ng-container matColumnDef="firstName" >
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td ma-cell *matCellDef="let user"><a [routerLink]="['/user', user._id]">{{ user.firstName }}</a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td ma-cell *matCellDef="let user">{{ user.lastName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td ma-cell *matCellDef="let user">{{ user.email }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+  <ng-template #noFirstName [ngClass]="exists ? 'success-text': 'danger-text'" >
+    Sorry, cant even.
+  </ng-template>
+</div>

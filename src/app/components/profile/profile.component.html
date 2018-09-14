@@ -1,0 +1,12 @@
+<div class="maring-body">
+  <h1 class="text-center">{{ user?.firstName }} {{ user?.lastName }}</h1>
+  <div class="text-center">
+    <img src="https://images.pexels.com/photos/164703/pexels-photo-164703.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Lemur Playing Trumpet" id="profileImg">
+  </div>
+  <nav mat-tab-nav-bar [backgroundColor]="['primary']">
+      <a mat-tab-link [routerLink]="['home']" [active]="true">Home</a>
+      <a mat-tab-link [routerLink]="['about']">About</a>
+      <a mat-tab-link [routerLink]="['contact']">Contact</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,19 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$md-lilac: ( 50: #f8eff4, 100: #edd7e3, 200: #e1bdd0, 300: #d4a3bd, 400: #cb8fae, 500: #c27ba0, 600: #bc7398, 700: #b4688e, 800: #ac5e84, 900: #9f4b73, A100: #fffcfd, A200: #ffc9e2, A400: #ff96c7, A700: #ff7cb9, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #000000, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+
+
+$md-green: ( 50: #f6faf5, 100: #e9f3e5, 200: #dbebd4, 300: #cce3c2, 400: #c1ddb5, 500: #b6d7a8, 600: #afd3a0, 700: #a6cd97, 800: #9ec78d, 900: #8ebe7d, A100: #ffffff, A200: #ffffff, A400: #e7ffde, A700: #d4ffc4, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #000000, 800: #000000, 900: #000000, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+
+$md-sunset: ( 50: #fff1e0, 100: #ffdbb3, 200: #ffc380, 300: #ffab4d, 400: #ff9926, 500: #ff8700, 600: #ff7f00, 700: #ff7400, 800: #ff6a00, 900: #ff5700, A100: #ffffff, A200: #fff6f2, A400: #ffd1bf, A700: #ffbfa6, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #000000, 800: #000000, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+
+
+$my-app-primary: mat-palette($md-lilac);
+$my-app-accent: mat-palette($md-green);
+$my-app-warn: mat-palette($md-sunset);
+
+$my-theme: mat-dark-theme($my-app-primary, $my-app-accent, $my-app-warn);
+// $my-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@include angular-material-theme($my-theme);

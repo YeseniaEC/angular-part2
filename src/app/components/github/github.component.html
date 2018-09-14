@@ -1,0 +1,21 @@
+<div class="margin-body">
+  <h1 class="text-center">My Github Repos</h1>
+  <span>  <input type="text" placeholder="Search Repos... " [(ngModel)]="searchText"></span>
+  <div>
+    <mat-card class="myCard" *ngFor="let repo of repos | search: searchText">
+      <mat-card-header >
+        <mat-card-title>{{ repo.name }}</mat-card-title>
+        <mat-card-subtitle>{{ repo.owner.login }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ showDescription(repo.description) }}</p>
+        <p [ngClass]="repo.language">{{ showLanguage(repo.language) }}</p>
+        <p [ngClass]="checkDate(repo.created_at) ? 'newer-date' : '' "> Created: {{ repo.created_at | date: "longDate" }}</p>
+      </mat-card-content>
+      <mat-card-actions class="margin">
+        <a class="button" mar-button href="{{ repo.html_url }}" target="_blank"> View </a>
+        <a class="button" mar-button href="{{ repo.forks_url }}" target="_blank"> Fork </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
